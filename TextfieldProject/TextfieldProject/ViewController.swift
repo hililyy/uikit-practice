@@ -61,3 +61,11 @@ extension ViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 }
+
+
+
+// 왜 프로토콜을 사용할 수 밖에 없을까?
+// 뷰 컨트롤러에게 상황에 대한 판단(동작)을 위임 가능
+// 객체간 쌍방향 커뮤니케이션 가능 (데이터를 주고 받는 것도 가능)
+//ex) 리턴값에 따라 텍스트 필드는 동작할지 말지 판단
+// 텍스트필드의 내부 구현을 숨길 수 있음
