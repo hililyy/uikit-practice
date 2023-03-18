@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ViewController: UIViewController {
     // 이메일 입력하는 텍스트 뷰
@@ -111,10 +112,10 @@ final class ViewController: UIViewController {
     // 비밀번호 재설정 버튼
     private lazy var passwordResetButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .clear
+        button.backgroundColor = .lightGray
         button.setTitle("비밀번호 재설정", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(resetButtonTapped  ), for: .touchUpInside)
+        button.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -128,7 +129,8 @@ final class ViewController: UIViewController {
     }()
     
     private let textViewHeight: CGFloat = 48
-    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldview.centerYAnchor)
+//    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldview.centerYAnchor)
+    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.
     lazy var passwordInfoLabelCenterYConstraint = passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor)
     
     override func viewDidLoad() {
@@ -150,6 +152,18 @@ final class ViewController: UIViewController {
         passwordSecureButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         passwordResetButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        emailInfoLabel.snp.makeConstraints { make in
+            make.left.equalTo(emailTextFieldview).offset(8)
+            make.right.equalTo(emailTextFieldview).offset(8)
+        }
+        
+        
+        
+        
+        
+        
+        
         
         NSLayoutConstraint.activate([
             emailInfoLabel.leadingAnchor.constraint(equalTo: emailTextFieldview.leadingAnchor, constant: 8),
