@@ -13,6 +13,7 @@
 		2A11203529C4CA0C00EA5C9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A11203329C4CA0C00EA5C9F /* Main.storyboard */; };
 		2A11203729C4CA0F00EA5C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A11203629C4CA0F00EA5C9F /* Assets.xcassets */; };
 		2A11203A29C4CA0F00EA5C9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A11203829C4CA0F00EA5C9F /* LaunchScreen.storyboard */; };
+		2AA8091D29C5DACC003170C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8091C29C5DACC003170C4 /* LoginView.swift */; };
 		C4278926C1ED52D079C840E1 /* Pods_LoginProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADE05A9AE8BC1CA39619817 /* Pods_LoginProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		2A11203629C4CA0F00EA5C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A11203929C4CA0F00EA5C9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A11203B29C4CA0F00EA5C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA8091C29C5DACC003170C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9ADE05A9AE8BC1CA39619817 /* Pods_LoginProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,9 +65,10 @@
 		2A11202C29C4CA0C00EA5C9F /* LoginProject */ = {
 			isa = PBXGroup;
 			children = (
+				2AA8091F29C5DDC6003170C4 /* Controller */,
+				2AA8091E29C5DD8D003170C4 /* View */,
 				2A11202D29C4CA0C00EA5C9F /* AppDelegate.swift */,
 				2A11202F29C4CA0C00EA5C9F /* SceneDelegate.swift */,
-				2A11203129C4CA0C00EA5C9F /* ViewController.swift */,
 				2A11203329C4CA0C00EA5C9F /* Main.storyboard */,
 				2A11203629C4CA0F00EA5C9F /* Assets.xcassets */,
 				2A11203829C4CA0F00EA5C9F /* LaunchScreen.storyboard */,
@@ -74,13 +77,28 @@
 			path = LoginProject;
 			sourceTree = "<group>";
 		};
+		2AA8091E29C5DD8D003170C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AA8091C29C5DACC003170C4 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2AA8091F29C5DDC6003170C4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A11203129C4CA0C00EA5C9F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3BCA13D537019EAF276AF238 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1E219E46386421C71C574D20 /* Pods-LoginProject.debug.xcconfig */,
 				0356A81D3A3E20409F7D5B8B /* Pods-LoginProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,6 +227,7 @@
 			files = (
 				2A11203229C4CA0C00EA5C9F /* ViewController.swift in Sources */,
 				2A11202E29C4CA0C00EA5C9F /* AppDelegate.swift in Sources */,
+				2AA8091D29C5DACC003170C4 /* LoginView.swift in Sources */,
 				2A11203029C4CA0C00EA5C9F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
