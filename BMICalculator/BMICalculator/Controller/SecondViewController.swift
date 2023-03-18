@@ -7,15 +7,13 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+final class SecondViewController: UIViewController {
     
     @IBOutlet weak var bmiNumberLabel: UILabel!
     @IBOutlet weak var adviceLable: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    var bmiNumber: Double?
-    var adviceString: String?
-    var bmiColor: UIColor?
+    var bmi: BMI?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +25,10 @@ class SecondViewController: UIViewController {
         bmiNumberLabel.layer.cornerRadius = 10
         bmiNumberLabel.clipsToBounds = true
         
-        guard let bmi = bmiNumber else { return }
-        bmiNumberLabel.text = String(bmi)
-        adviceLable.text = adviceString
-        bmiNumberLabel.backgroundColor = bmiColor
+        guard let bmi = bmi else { return }
+        bmiNumberLabel.text = String(bmi.value)
+        adviceLable.text = bmi.advice
+        bmiNumberLabel.backgroundColor = bmi.matchColor
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
