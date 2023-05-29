@@ -13,6 +13,7 @@
 		2A2F88E729F80D760029A99D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2F88E529F80D760029A99D /* Main.storyboard */; };
 		2A2F88E929F80D780029A99D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A2F88E829F80D780029A99D /* Assets.xcassets */; };
 		2A2F88EC29F80D780029A99D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2F88EA29F80D780029A99D /* LaunchScreen.storyboard */; };
+		2AB573162A247F9F001A4079 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB573152A247F9F001A4079 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2A2F88E829F80D780029A99D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A2F88EB29F80D780029A99D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A2F88ED29F80D780029A99D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AB573152A247F9F001A4079 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2A2F88DF29F80D760029A99D /* AppDelegate.swift */,
 				2A2F88E129F80D760029A99D /* SceneDelegate.swift */,
 				2A2F88E329F80D760029A99D /* ViewController.swift */,
+				2AB573152A247F9F001A4079 /* MovieCell.swift */,
 				2A2F88E529F80D760029A99D /* Main.storyboard */,
 				2A2F88E829F80D780029A99D /* Assets.xcassets */,
 				2A2F88EA29F80D780029A99D /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				2A2F88E429F80D760029A99D /* ViewController.swift in Sources */,
 				2A2F88E029F80D760029A99D /* AppDelegate.swift in Sources */,
+				2AB573162A247F9F001A4079 /* MovieCell.swift in Sources */,
 				2A2F88E229F80D760029A99D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +299,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +328,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
