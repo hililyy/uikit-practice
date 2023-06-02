@@ -42,6 +42,7 @@ final class ViewController: UIViewController {
     
     func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 60
         
         tableView.register(MemberTableViewCell.self, forCellReuseIdentifier: "MemberCell")
@@ -64,7 +65,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memberListManager.getMembersList().count
     }
@@ -75,5 +76,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         
         return UITableViewCell()
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        
+        let array = memberListManager.getMembersList()
+        detailVC.member = array[indexPath.row]
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
