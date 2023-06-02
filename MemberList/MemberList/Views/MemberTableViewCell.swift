@@ -9,6 +9,15 @@ import UIKit
 
 class MemberTableViewCell: UITableViewCell {
     
+    var member: Member? {
+        didSet {
+            guard var member = member else { return }
+            mainImageView.image = member.memberImage
+            memberNameLabel.text = member.name
+            addressLabel.text = member.address
+        }
+    }
+    
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +57,6 @@ class MemberTableViewCell: UITableViewCell {
     }
     
     func setupStackView() {
-
         self.contentView.addSubview(mainImageView)
         self.contentView.addSubview(stackView)
         
@@ -59,6 +67,11 @@ class MemberTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func updateConstraints() {
+        setConstraints()
+        super.updateConstraints()
     }
 
     override func layoutSubviews() {
@@ -71,9 +84,6 @@ class MemberTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             mainImageView.heightAnchor.constraint(equalToConstant: 40),
             mainImageView.widthAnchor.constraint(equalToConstant: 40),
-            
-            // self.leadingAnchor로 잡는 것보다 self.contentView.leadingAnchor로 잡는게 더 정확함 ⭐️
-            // (cell은 기본뷰로 contentView를 가지고 있기 때문)
             mainImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
             mainImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
@@ -84,9 +94,6 @@ class MemberTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: 20),
-            
-            // self.trailingAnchor로 잡는 것보다 self.contentView.trailingAnchor로 잡는게 더 정확함 ⭐️
-            // (cell은 기본뷰로 contentView를 가지고 있기 때문)
             stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: self.mainImageView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.mainImageView.bottomAnchor)

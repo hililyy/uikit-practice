@@ -22,6 +22,7 @@ struct Member {
     }()
     
     static var memberNumbers: Int = 0
+     
     let memberId: Int
     var name: String?
     var age: Int?

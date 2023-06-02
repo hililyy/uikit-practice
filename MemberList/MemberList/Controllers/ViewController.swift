@@ -19,6 +19,7 @@ final class ViewController: UIViewController {
         setupDatas()
         tableView.dataSource = self
         setupNaviBar()
+        setupTableView()
         setupTableViewConstraints()
     }
     
@@ -42,6 +43,8 @@ final class ViewController: UIViewController {
     func setupTableView() {
         tableView.dataSource = self
         tableView.rowHeight = 60
+        
+        tableView.register(MemberTableViewCell.self, forCellReuseIdentifier: "MemberCell")
     }
     
     func setupDatas() {
@@ -67,6 +70,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberTableViewCell
+        cell.member = memberListManager[indexPath.row]
+        cell.selectionStyle = .none
+        
         return UITableViewCell()
     }
 }
