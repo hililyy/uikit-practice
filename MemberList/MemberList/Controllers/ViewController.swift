@@ -10,9 +10,8 @@ import UIKit
 final class ViewController: UIViewController {
     
     private let tableView = UITableView()
-    
     var memberListManager = MemberListManager()
-
+    
     lazy var plusButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonTapped))
         return button
@@ -20,17 +19,12 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
-        setupDatas()
-        tableView.dataSource = self
         setupNaviBar()
         setupTableView()
+        setupDatas()
         setupTableViewConstraints()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
     }
     
     func setupNaviBar() {
@@ -38,29 +32,25 @@ final class ViewController: UIViewController {
         
         // 네비게이션바 설정관련
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()  // 불투명으로
+        appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .systemBlue
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        // 네비게이션바 오른쪽 상단 버튼 설정
         self.navigationItem.rightBarButtonItem = self.plusButton
     }
-    
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 60
-        
         tableView.register(MemberTableViewCell.self, forCellReuseIdentifier: "MemberCell")
     }
     
     func setupDatas() {
         memberListManager.makeMembersListDatas()
     }
-
+    
     func setupTableViewConstraints() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,16 +64,11 @@ final class ViewController: UIViewController {
     }
     
     @objc func plusButtonTapped() {
-        // 다음화면으로 이동 (멤버는 전달하지 않음)
         let detailVC = DetailViewController()
-        
-        // 다음 화면의 대리자 설정 (다음 화면의 대리자는 지금 현재의 뷰컨트롤러)
-        //detailVC.delegate = self
-        
-        // 화면이동
+        detailVC.delegate = self
         navigationController?.pushViewController(detailVC, animated: true)
-        //show(detailVC, sender: nil)
     }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -96,17 +81,29 @@ extension ViewController: UITableViewDataSource {
         cell.member = memberListManager[indexPath.row]
         cell.selectionStyle = .none
         
-        return UITableViewCell()
+        return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
-        
-        let array = memberListManager.getMembersList()
-        detailVC.member = array[indexPath.row]
+        detailVC.delegate = self
+        let currentMember = memberListManager.getMembersList()[indexPath.row]
+        detailVC.member = currentMember
         
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension ViewController: MemberDelegate {
+    func addNewMember(_ member: Member) {
+        memberListManager.makeNewMember(member)
+        tableView.reloadData()
+    }
+    
+    func update(index: Int, _ member: Member) {
+        memberListManager.updateMemberInfo(index: index, member)
+        tableView.reloadData()
     }
 }

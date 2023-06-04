@@ -22,22 +22,18 @@ final class MemberListManager {
         ]
     }
     
-    // 전체 멤버 리스트 얻기
     func getMembersList() -> [Member] {
         return membersList
     }
     
-    // 새로운 멤버 만들기
     func makeNewMember(_ member: Member) {
         membersList.append(member)
     }
     
-    // 기존 멤버의 정보 업데이트
     func updateMemberInfo(index: Int, _ member: Member) {
         membersList[index] = member
     }
     
-    // 특정 멤버 얻기 (굳이 필요 없지만, 서브스크립트 구현해보기)
     subscript(index: Int) -> Member {
         get {
             return membersList[index]

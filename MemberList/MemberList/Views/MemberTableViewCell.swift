@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemberTableViewCell: UITableViewCell {
+final class MemberTableViewCell: UITableViewCell {
     
     var member: Member? {
         didSet {
@@ -52,11 +52,11 @@ class MemberTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         setupStackView()
-        
         setConstraints()
     }
     
     func setupStackView() {
+
         self.contentView.addSubview(mainImageView)
         self.contentView.addSubview(stackView)
         
@@ -73,7 +73,7 @@ class MemberTableViewCell: UITableViewCell {
         setConstraints()
         super.updateConstraints()
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.mainImageView.clipsToBounds = true
